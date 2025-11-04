@@ -6,6 +6,16 @@
   padding: 2rem;
 }
 
+.main-content {
+  margin-top: 72px;
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-top: 64px;
+  }
+}
+
 .imperial-header h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
@@ -79,4 +89,4 @@
   font-size: 0.9rem;
   padding: 2rem 0;
 }
-}
+
