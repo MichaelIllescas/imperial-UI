@@ -1,0 +1,107 @@
+/* Bloque base del date picker */
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    gap: 8px !important; 
+    width: 300px !important; 
+    min-width: 300px !important; 
+    max-width: 300px !important; 
+    height: auto !important; 
+    flex-shrink: 0; 
+    flex-grow: 0; 
+    margin: 0 !important; 
+    padding: 0 !important;
+}
+
+/* Elemento: Label - MISMO TAMAÑO SIEMPRE */
+.datePicker__label {
+    font-size: 0.95rem !important;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    line-height: 1.4 !important; 
+    margin: 0 !important; 
+    padding: 0 !important; 
+}
+
+/* Elemento: Asterisco de requerido */
+.datePicker__required {
+    color: #dc3545;
+    margin-left: 4px;
+}
+
+/* Elemento: Input - MISMO TAMAÑO SIEMPRE */
+.datePicker__input {
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-family: inherit;
+    font-size: 1rem !important;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    height: 44px !important; 
+    line-height: 1.5 !important; 
+    box-sizing: border-box !important; 
+    margin: 0 !important;
+}
+
+.datePicker__input:hover:not(:disabled) {
+    border-color: #007bff;
+}
+
+.datePicker__input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Modificador: Input deshabilitado */
+.datePicker__input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Modificador: Tamaños - DESHABILITADOS - TODOS IGUALES */
+.datePicker--small,
+.datePicker--medium,
+.datePicker--large {
+    width: 300px !important;
+    height: auto !important;
+}
+
+.datePicker--small .datePicker__label,
+.datePicker--medium .datePicker__label,
+.datePicker--large .datePicker__label {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+}
+
+.datePicker--small .datePicker__input,
+.datePicker--medium .datePicker__input,
+.datePicker--large .datePicker__input {
+    padding: 10px 14px !important;
+    font-size: 1rem !important;
+    height: 44px !important;
+}
+
+/* Personalización del calendario nativo */
+.datePicker__input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.datePicker__input::-webkit-calendar-picker-indicator:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Firefox */
+.datePicker__input::-moz-calendar-picker-indicator {
+    cursor: pointer;
+}

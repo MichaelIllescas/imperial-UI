@@ -24,6 +24,12 @@ function App() {
   const handleClick = () => {
     alert("¡Botón funcionando!");
   };
+
+  // Estados para los DatePickers
+  const [fecha1, setFecha1] = useState("");
+  const [fecha2, setFecha2] = useState("");
+  const [fechaInicio, setFechaInicio]= useState("");
+  const [fechaFin, setFechaFin]= useState("");
   return (
     <div className="imperial-app">
       <NavBar
