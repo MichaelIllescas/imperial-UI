@@ -1,0 +1,70 @@
+
+/* Bloque base del boton */
+.btn {
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translate(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+    transform: translate(0);
+    
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #6c757d !important;
+}
+
+/* Modificador: Variantes de color */
+
+.btn--primary {
+    background-color: #007bff; /* Azul intenso */
+    color: #fff;
+}
+
+.btn--primary:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.btn--secondary {
+    background-color: #6c757d; /* Gris */
+    color: #fff;
+}
+
+.btn--secondary:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.btn--danger {
+    background-color: #dc3545; 
+    color: #fff;
+}
+
+.btn--danger:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+/* Modificador: Tamaños */
+.btn--small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.btn--medium {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}   
