@@ -1,6 +1,6 @@
 # 🧱 Button
 
-Componente de boton reutilizable para acciones, formularios y navegacion.
+Componente de boton reutilizable para acciones, formularios y navegacion.   
 
 ## 📝 Descripción
 Este componente representa un botón configurable que puede adaptarse a diferentes variantes visuales y tamaños.  
