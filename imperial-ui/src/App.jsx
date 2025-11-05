@@ -5,11 +5,7 @@ import "./App.css";
  * This serves as the visual entry point and identity of the component library.
  */
 function App() {
-   
-  return (
-    <div className="imperial-app">
-    
-    
+
 
       {/* Margen superior para el navbar fijo */}
       <div className="main-content">
@@ -20,8 +16,7 @@ function App() {
 
         <main className="imperial-main">
           <p>🚀 Proyecto iniciado correctamente.</p>
-      
-     
+
         </main>
 
         <footer className="imperial-footer">
