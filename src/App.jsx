@@ -1,8 +1,5 @@
 import "./App.css";
-import { Button } from "./components/Button/Button";
-import NavBar from "./components/navbar/NavBar";
-import Select from './components/Select/Select';
-``
+
 /**
  * Imperial UI - Base showcase component.
  * This serves as the visual entry point and identity of the component library.
