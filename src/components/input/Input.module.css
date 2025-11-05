@@ -1,0 +1,200 @@
+/* Input Component Styles - BEM Methodology */
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.input__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 2px;
+}
+
+.input__required {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.input__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.input__wrapper:hover:not(.input__wrapper--disabled) {
+  border-color: #9ca3af;
+}
+
+.input__wrapper--focused {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input__field {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #1f2937;
+  outline: none;
+  font-family: inherit;
+}
+
+.input__field::placeholder {
+  color: #9ca3af;
+}
+
+.input__field:disabled {
+  cursor: not-allowed;
+  color: #9ca3af;
+}
+
+/* Icons */
+.input__icon_left,
+.input__icon_right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  flex-shrink: 0;
+  padding: 0 12px;
+}
+
+.input__icon_right {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.input__icon_right:hover {
+  color: #374151;
+}
+
+.input__field--with-left-icon {
+  padding-left: 0;
+}
+
+.input__field--with-right-icon {
+  padding-right: 0;
+}
+
+/* Helper text */
+.input__helper {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Error text */
+.input__error {
+  font-size: 0.85rem;
+  color: #ef4444;
+  margin: 0;
+}
+
+/* Character counter */
+.input__counter {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  text-align: right;
+  margin: 0;
+}
+
+/* ===============================
+   SIZE VARIANTS
+   =============================== */
+
+/* Small */
+.input--small .input__field {
+  padding: 6px 10px;
+  font-size: 0.875rem;
+}
+
+.input--small .input__label {
+  font-size: 0.8rem;
+}
+
+.input--small .input__icon_left,
+.input--small .input__icon_right {
+  padding: 0 8px;
+  font-size: 0.9rem;
+}
+
+/* Medium (default) */
+.input--medium .input__field {
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+
+/* Large */
+.input--large .input__field {
+  padding: 14px 18px;
+  font-size: 1.1rem;
+}
+
+.input--large .input__label {
+  font-size: 1rem;
+}
+
+.input--large .input__icon_left,
+.input--large .input__icon_right {
+  padding: 0 14px;
+  font-size: 1.3rem;
+}
+
+/* ===============================
+   COLOR VARIANTS
+   =============================== */
+
+/* Default (already defined above) */
+
+/* Success */
+.input__wrapper--success {
+  border-color: #10b981;
+}
+
+.input__wrapper--success.input__wrapper--focused {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Danger / Error */
+.input__wrapper--danger,
+.input__wrapper--error {
+  border-color: #ef4444;
+}
+
+.input__wrapper--danger.input__wrapper--focused,
+.input__wrapper--error.input__wrapper--focused {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* ===============================
+   DISABLED STATE
+   =============================== */
+
+.input__wrapper--disabled {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.input__wrapper--disabled:hover {
+  border-color: #e5e7eb;
+}
+
+.input__wrapper--disabled .input__icon_left,
+.input__wrapper--disabled .input__icon_right {
+  color: #9ca3af;
+}

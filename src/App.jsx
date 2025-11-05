@@ -1,3 +1,4 @@
+
 import "./App.css";
 
 /**
@@ -7,22 +8,22 @@ import "./App.css";
 function App() {
 
 
+return (
+    <div className="main-content">
       {/* Margen superior para el navbar fijo */}
-      <div className="main-content">
-        <header className="imperial-header">
-          <h1>🧱 Imperial UI</h1>
-          <p>Librería de componentes reutilizables de Imperial Net</p>
-        </header>
+      <header className="imperial-header">
+        <h1>🧱 Imperial UI</h1>
+        <p>Librería de componentes reutilizables de Imperial Net</p>
+        
+      </header>
 
-        <main className="imperial-main">
-          <p>🚀 Proyecto iniciado correctamente.</p>
+      <main className="imperial-main">
+        <p>🚀 Proyecto iniciado correctamente.</p>
+      </main>
 
-        </main>
-
-        <footer className="imperial-footer">
-          <small>Imperial Net © 2025 — Internal Component Library</small>
-        </footer>
-      </div>
+      <footer className="imperial-footer">
+        <small>Imperial Net © 2025 — Internal Component Library</small>
+      </footer>
     </div>
   );
 }
