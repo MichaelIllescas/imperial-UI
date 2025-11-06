@@ -1,0 +1,241 @@
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: fit-content;
+}
+
+.radioGroup__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.radioGroup__container {
+    display: flex;
+    gap: 12px;
+}
+
+.radioGroup--vertical .radioGroup__container {
+    flex-direction: column;
+}
+
+.radioGroup--horizontal .radioGroup__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.radioGroup__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.radioGroup__item--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.radioGroup__input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.radioGroup__input:hover:not(:disabled) {
+    border-color: #9ca3af;
+}
+
+.radioGroup__input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+.radioGroup__input:checked {
+    border-color: #3b82f6;
+    background-color: #fff;
+}
+
+.radioGroup__input:disabled {
+    cursor: not-allowed;
+}
+
+.radioGroup__checkmark {
+    position: absolute;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.radioGroup__input:checked + .radioGroup__checkmark {
+    opacity: 1;
+}
+
+.radioGroup__itemLabel {
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
+
+.radioGroup__item--disabled .radioGroup__itemLabel {
+    cursor: not-allowed;
+}
+
+/* Modificador: Tamaños */
+.radioGroup--small .radioGroup__input {
+    width: 16px;
+    height: 16px;
+}
+
+.radioGroup--small .radioGroup__checkmark {
+    left: 5px;
+    width: 6px;
+    height: 6px;
+}
+
+.radioGroup--small .radioGroup__itemLabel {
+    font-size: 12px;
+}
+
+.radioGroup__itemLabel--small {
+    font-size: 12px;
+}
+
+.radioGroup--medium .radioGroup__input {
+    width: 20px;
+    height: 20px;
+}
+
+.radioGroup--medium .radioGroup__checkmark {
+    left: 6px;
+    width: 8px;
+    height: 8px;
+}
+
+.radioGroup--medium .radioGroup__itemLabel {
+    font-size: 14px;
+}
+
+.radioGroup__itemLabel--medium {
+    font-size: 14px;
+}
+
+.radioGroup--large .radioGroup__input {
+    width: 24px;
+    height: 24px;
+}
+
+.radioGroup--large .radioGroup__checkmark {
+    left: 7px;
+    width: 10px;
+    height: 10px;
+}
+
+.radioGroup--large .radioGroup__itemLabel {
+    font-size: 16px;
+}
+
+.radioGroup__itemLabel--large {
+    font-size: 16px;
+}
+
+/* Modificador: Variantes */
+.radioGroup__input--primary:checked {
+    border-color: #3b82f6;
+}
+
+.radioGroup__input--primary:checked + .radioGroup__checkmark {
+    background-color: #3b82f6;
+}
+
+.radioGroup__input--secondary:checked {
+    border-color: #6c757d;
+}
+
+.radioGroup__input--secondary:checked + .radioGroup__checkmark {
+    background-color: #6c757d;
+}
+
+.radioGroup__input--success:checked {
+    border-color: #10b981;
+}
+
+.radioGroup__input--success:checked + .radioGroup__checkmark {
+    background-color: #10b981;
+}
+
+.radioGroup__input--danger:checked {
+    border-color: #ef4444;
+}
+
+.radioGroup__input--danger:checked + .radioGroup__checkmark {
+    background-color: #ef4444;
+}
+
+.radioGroup__input--warning:checked {
+    border-color: #f59e0b;
+}
+
+.radioGroup__input--warning:checked + .radioGroup__checkmark {
+    background-color: #f59e0b;
+}
+
+/* Estados de error y helper */
+.radioGroup__helper {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+    padding: 0;
+}
+
+.radioGroup__error {
+    font-size: 12px;
+    color: #ef4444;
+    margin: 0;
+    padding: 0;
+}
+
+.radioGroup--error .radioGroup__input {
+    border-color: #ef4444;
+}
+
+.radioGroup--error .radioGroup__input:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.radioGroup--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.radioGroup--disabled .radioGroup__item {
+    cursor: not-allowed;
+}
+
+.radioGroup--disabled .radioGroup__input {
+    cursor: not-allowed;
+}
+
+.radioGroup--disabled .radioGroup__itemLabel {
+    cursor: not-allowed;
+}
