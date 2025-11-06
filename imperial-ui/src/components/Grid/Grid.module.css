@@ -1,0 +1,135 @@
+/* Bloque base del Grid */
+.grid {
+    display: grid;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Modificadores: Espaciado entre elementos */
+.grid--gap-small {
+    gap: 8px;
+}
+
+.grid--gap-medium {
+    gap: 16px;
+}
+
+.grid--gap-large {
+    gap: 24px;
+}
+
+.grid--gap-xlarge {
+    gap: 32px;
+}
+
+/* Modificadores: Alineación vertical de items */
+.grid--align-start {
+    align-items: start;
+}
+
+.grid--align-center {
+    align-items: center;
+}
+
+.grid--align-end {
+    align-items: end;
+}
+
+.grid--align-stretch {
+    align-items: stretch;
+}
+
+/* Modificadores: Alineación horizontal de items */
+.grid--justify-start {
+    justify-items: start;
+}
+
+.grid--justify-center {
+    justify-items: center;
+}
+
+.grid--justify-end {
+    justify-items: end;
+}
+
+.grid--justify-stretch {
+    justify-items: stretch;
+}
+
+/* Grid Item base */
+.gridItem {
+    box-sizing: border-box;
+}
+
+/* Utilidades responsivas */
+/* Desktop - Mantiene el grid original */
+@media (min-width: 1025px) {
+    .grid--responsive {
+        /* Grid mantiene su configuración original en desktop */
+        min-width: 0;
+    }
+}
+
+/* Tablet - 2 columnas */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .grid--responsive {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .grid--responsive .gridItem[style*="grid-column"] {
+        grid-column: auto !important;
+    }
+}
+
+/* Mobile - 1 columna */
+@media (max-width: 768px) {
+    .grid--responsive {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .grid--responsive .gridItem[style*="grid-column"] {
+        grid-column: auto !important;
+    }
+    
+    .grid--responsive .gridItem[style*="grid-row"] {
+        grid-row: auto !important;
+    }
+    
+    /* Reducir gaps en móviles */
+    .grid--responsive.grid--gap-large,
+    .grid--responsive.grid--gap-xlarge {
+        gap: 16px !important;
+    }
+}
+
+/* Breakpoints específicos personalizados */
+.grid--mobile-1 {
+    min-width: 0;
+}
+
+.grid--tablet-2 {
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .grid--mobile-1 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .grid--tablet-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Estilos adicionales para mejor visualización en desarrollo */
+.grid--debug {
+    border: 2px dashed rgba(0, 123, 255, 0.3);
+}
+
+.grid--debug .gridItem {
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    background-color: rgba(0, 123, 255, 0.05);
+    min-height: 50px;
+}
