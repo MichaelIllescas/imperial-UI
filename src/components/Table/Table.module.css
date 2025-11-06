@@ -1,0 +1,261 @@
+/* Contenedor principal */
+.tableContainer {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Encabezado de la tabla */
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tableTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.tableHeaderActions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+/* Buscador */
+.searchContainer {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.625rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Contenedor con scroll para la tabla */
+.tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Estilos de la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ancho mínimo para evitar que se comprima demasiado */
+}
+
+.table thead {
+    background-color: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #374151;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.th.sortable {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.th.sortable:hover {
+    background-color: #f3f4f6;
+}
+
+.thContent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sortIcon {
+    font-size: 0.875rem;
+    color: #007bff;
+}
+
+.tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease;
+}
+
+.tr:hover {
+    background-color: #f9fafb;
+}
+
+.tr:last-child {
+    border-bottom: none;
+}
+
+.td {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.actionsContainer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.noData {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Paginación */
+.paginationContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.paginationInfo {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.paginationButton {
+    padding: 0.5rem 0.875rem;
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    color: #374151;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 40px;
+}
+
+.paginationButton:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.paginationButton.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.paginationButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f9fafb;
+}
+
+.ellipsis {
+    padding: 0.5rem;
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tableHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tableHeaderActions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .searchInput {
+        max-width: 100%;
+    }
+
+    .th,
+    .td {
+        padding: 0.75rem 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .tableTitle {
+        font-size: 1.25rem;
+    }
+
+    .paginationContainer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .paginationInfo {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tableContainer {
+        border-radius: 8px;
+    }
+
+    .tableHeader,
+    .searchContainer {
+        padding: 1rem;
+    }
+
+    .th,
+    .td {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .paginationButton {
+        padding: 0.375rem 0.625rem;
+        font-size: 0.75rem;
+        min-width: 36px;
+    }
+
+    .actionsContainer {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
