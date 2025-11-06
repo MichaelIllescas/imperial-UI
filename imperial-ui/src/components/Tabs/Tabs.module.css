@@ -1,0 +1,286 @@
+/* Contenedor principal de Tabs */
+.tabs {
+  font-family: inherit;
+  width: 100%;
+}
+
+/* Lista de pestañas (botones) */
+.tabsList {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  gap: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 transparent;
+}
+
+.tabsList::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabsList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabsList::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.tabsList::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Botón individual de pestaña */
+.tabButton {
+  background: transparent;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  position: relative;
+  outline: none;
+}
+
+.tabButton:hover:not(:disabled) {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.tabButton:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Pestaña activa */
+.tabButtonActive {
+  color: #007bff;
+  border-bottom-color: #007bff;
+  font-weight: 600;
+}
+
+/* Pestaña deshabilitada */
+.tabButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Icono dentro de la pestaña */
+.tabIcon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Etiqueta de la pestaña */
+.tabLabel {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Badge dentro de la pestaña */
+.tabBadge {
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Contenedor del contenido de las pestañas */
+.tabsContent {
+  padding: 20px 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Panel individual de contenido */
+.tabPanel {
+  display: none;
+}
+
+.tabPanelActive {
+  display: block;
+}
+
+/* Variante Pills */
+.tabs--pills .tabsList {
+  border-bottom: none;
+  gap: 8px;
+  padding: 4px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.tabs--pills .tabButton {
+  border-radius: 6px;
+  border-bottom: none;
+  padding: 10px 20px;
+}
+
+.tabs--pills .tabButtonActive {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.tabs--pills .tabButton:hover:not(:disabled) {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.tabs--pills .tabButtonActive:hover {
+  background-color: #0056b3;
+}
+
+/* Variante Bordered */
+.tabs--bordered .tabButton {
+  border: 2px solid #e0e0e0;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: -2px;
+}
+
+.tabs--bordered .tabButtonActive {
+  border-color: #007bff;
+  border-bottom: 2px solid #fff;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* Variante Underlined (default mejorado) */
+.tabs--underlined .tabButton {
+  border-bottom-width: 3px;
+}
+
+.tabs--underlined .tabButtonActive {
+  border-bottom-width: 3px;
+}
+
+/* Orientación Vertical */
+.tabs--vertical {
+  display: flex;
+  gap: 20px;
+}
+
+.tabs--vertical .tabsList {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 2px solid #e0e0e0;
+  gap: 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-width: 200px;
+}
+
+.tabs--vertical .tabButton {
+  border-bottom: none;
+  border-right: 3px solid transparent;
+  text-align: left;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.tabs--vertical .tabButtonActive {
+  border-bottom: none;
+  border-right-color: #007bff;
+}
+
+.tabs--vertical .tabsContent {
+  flex: 1;
+  padding: 0 0 0 20px;
+}
+
+/* Full Width */
+.tabs--fullWidth .tabsList {
+  display: flex;
+}
+
+.tabs--fullWidth .tabButton {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabButton {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .tabIcon {
+    font-size: 16px;
+  }
+
+  .tabsContent {
+    padding: 16px 0;
+  }
+
+  .tabs--vertical {
+    flex-direction: column;
+  }
+
+  .tabs--vertical .tabsList {
+    border-right: none;
+    border-bottom: 2px solid #e0e0e0;
+    flex-direction: row;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .tabs--vertical .tabButton {
+    border-right: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .tabs--vertical .tabButtonActive {
+    border-right: none;
+    border-bottom-color: #007bff;
+  }
+
+  .tabs--vertical .tabsContent {
+    padding: 16px 0 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabButton {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .tabLabel {
+    display: none;
+  }
+
+  .tabIcon {
+    font-size: 20px;
+  }
+
+  .tabButton:has(.tabLabel:only-child) .tabLabel {
+    display: inline-flex;
+  }
+}
