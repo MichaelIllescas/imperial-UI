@@ -1,0 +1,156 @@
+
+.footer {
+    width: 100%;
+    padding: 24px 20px;
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-top: 1px solid #374151;
+    margin-top: auto;
+}
+
+.footerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+/* Footer variants */
+.footer--simple {
+  padding: 20px;
+}
+
+.footer--extended {
+  padding: 40px 20px;
+}
+
+.footer--minimal {
+  padding: 16px 20px;
+  border-top: none;
+}
+
+/* Footer links section */
+.footerLinks {
+  width: 100%;
+}
+
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.footerLink {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: #3b82f6;
+}
+
+/* Social media links */
+.footerSocial {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.footerSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #374151;
+  color: #d1d5db;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.footerSocialLink:hover {
+  background-color: #3b82f6;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Copyright section */
+.footerCopyright {
+  text-align: center;
+  color: #9ca3af;
+}
+
+.footerCopyright small {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 15px;
+  }
+
+  .footer--extended {
+    padding: 30px 15px;
+  }
+
+  .footerNav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .footerLink {
+    font-size: 0.85rem;
+  }
+
+  .footerSocial {
+    gap: 12px;
+  }
+
+  .footerSocialLink {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: light) {
+  .footer {
+    background-color: #f9fafb;
+    color: #1f2937;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .footerLink {
+    color: #6b7280;
+  }
+
+  .footerLink:hover {
+    color: #3b82f6;
+  }
+
+  .footerSocialLink {
+    background-color: #e5e7eb;
+    color: #6b7280;
+  }
+
+  .footerSocialLink:hover {
+    background-color: #3b82f6;
+    color: #fff;
+  }
+
+  .footerCopyright {
+    color: #6b7280;
+  }
+}
