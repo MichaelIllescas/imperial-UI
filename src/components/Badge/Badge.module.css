@@ -1,0 +1,624 @@
+/* ========================================
+   BADGE COMPONENT - IMPERIAL UI
+   ======================================== */
+
+/* Base Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Animated entrance */
+.badge--animated {
+  animation: badgeEnter 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes badgeEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Remove animation */
+.badge--removing {
+  animation: badgeExit 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+@keyframes badgeExit {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+}
+
+/* Shimmer effect */
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+/* ========================================
+   SIZE VARIANTS
+   ======================================== */
+
+.badge--small {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  min-height: 20px;
+  border-radius: 10px;
+}
+
+.badge--medium {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  min-height: 24px;
+  border-radius: 12px;
+}
+
+.badge--large {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  min-height: 28px;
+  border-radius: 14px;
+}
+
+/* ========================================
+   COLOR VARIANTS
+   ======================================== */
+
+.badge--default {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge--primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge--secondary {
+  background: linear-gradient(135deg, #6c757d 0%, #545b62 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge--success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge--danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge--warning {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+  color: #212529;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-shadow: none;
+}
+
+.badge--info {
+  background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge--light {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #495057 !important;
+  border: 1px solid #dee2e6;
+  text-shadow: none;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.badge--dark {
+  background: linear-gradient(135deg, #343a40 0%, #23272b 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   MODIFIER STYLES
+   ======================================== */
+
+/* Pill shape */
+.badge--pill {
+  border-radius: 50px;
+}
+
+/* Clickable badges */
+.badge--clickable {
+  cursor: pointer;
+  user-select: none;
+  transform-origin: center;
+}
+
+.badge--clickable:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.badge--clickable:active {
+  transform: translateY(-1px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* Hover effects for different variants */
+.badge--primary.badge--clickable:hover {
+  background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+}
+
+.badge--success.badge--clickable:hover {
+  background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+}
+
+.badge--danger.badge--clickable:hover {
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+}
+
+.badge--warning.badge--clickable:hover {
+  background: linear-gradient(135deg, #e0a800 0%, #d39e00 100%);
+}
+
+/* Disabled badges */
+.badge--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(0.3);
+}
+
+/* Removable badges */
+.badge--removable {
+  padding-right: 28px;
+}
+
+/* Pulse animation for notifications */
+.badge--pulse {
+  animation: badgePulse 2s infinite;
+  position: relative;
+}
+
+.badge--pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: inherit;
+  animation: badgePulseWave 2s infinite;
+  z-index: -1;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      0 0 0 0 currentColor;
+  }
+  50% {
+    box-shadow: 
+      0 2px 12px rgba(0, 0, 0, 0.2),
+      0 0 0 8px transparent;
+  }
+}
+
+@keyframes badgePulseWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   BADGE CONTENT
+   ======================================== */
+
+.badgeContent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1;
+  position: relative;
+}
+
+.badgeIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.badgeIcon svg {
+  width: 14px;
+  height: 14px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+/* Remove button */
+.badgeRemove {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 2px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(4px);
+}
+
+.badgeRemove:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1) rotate(90deg);
+}
+
+.badgeRemove:active {
+  transform: translateY(-50%) scale(0.95) rotate(90deg);
+}
+
+/* ========================================
+   DOT BADGE (notification indicator)
+   ======================================== */
+
+.badgeDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(255, 255, 255, 0.8);
+  animation: dotGlow 2s ease-in-out infinite alternate;
+}
+
+.badge--dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  min-height: unset;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes dotGlow {
+  0% {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.2),
+      0 0 0 2px rgba(255, 255, 255, 0.8),
+      0 0 0 0 currentColor;
+  }
+  100% {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.2),
+      0 0 0 2px rgba(255, 255, 255, 0.8),
+      0 0 5px 1px currentColor;
+  }
+}
+
+/* ========================================
+   COUNT BADGE (notification counter)
+   ======================================== */
+
+.badgeCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 10px;
+  color: #ffffff;
+  line-height: 1;
+  position: absolute;
+  z-index: 10;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  box-shadow: 
+    0 2px 8px rgba(220, 53, 69, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff;
+  animation: countBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes countBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Count badge positions */
+.badge--top-right {
+  top: -10px;
+  right: -10px;
+}
+
+.badge--top-left {
+  top: -10px;
+  left: -10px;
+}
+
+.badge--bottom-right {
+  bottom: -10px;
+  right: -10px;
+}
+
+.badge--bottom-left {
+  bottom: -10px;
+  left: -10px;
+}
+
+/* Pulse effect for count badges */
+.badgePulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: inherit;
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  opacity: 0.6;
+  animation: badgeCountPulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes badgeCountPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   NOTIFICATION WRAPPER
+   ======================================== */
+
+.notificationWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ========================================
+   SPECIAL EFFECTS AND ANIMATIONS
+   ======================================== */
+
+/* Floating animation for special badges */
+.badge--floating {
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Wiggle animation for attention */
+.badge--wiggle {
+  animation: badgeWiggle 0.5s ease-in-out;
+}
+
+@keyframes badgeWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+/* Gradient shift animation */
+.badge--gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.badge--gradient-shift.badge--primary {
+  background: linear-gradient(45deg, #007bff, #6610f2, #e83e8c, #007bff);
+}
+
+.badge--gradient-shift.badge--success {
+  background: linear-gradient(45deg, #28a745, #20c997, #17a2b8, #28a745);
+}
+
+.badge--gradient-shift.badge--warning {
+  background: linear-gradient(45deg, #ffc107, #fd7e14, #dc3545, #ffc107);
+}
+
+.badge--gradient-shift.badge--info {
+  background: linear-gradient(45deg, #17a2b8, #6f42c1, #007bff, #17a2b8);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .badge--large {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    min-height: 22px;
+  }
+
+  .badge--medium {
+    padding: 3px 7px;
+    font-size: 0.75rem;
+    min-height: 18px;
+  }
+
+  .badge--small {
+    padding: 2px 5px;
+    font-size: 0.65rem;
+    min-height: 15px;
+  }
+
+  .badgeCount {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================================== */
+
+.badge:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.badgeRemove:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 1px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .badge {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .badge--animated,
+  .badge--pulse,
+  .badgePulse {
+    animation: none;
+  }
+
+  .badge--clickable:hover {
+    transform: none;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .badge--light {
+    background-color: #495057;
+    color: #f8f9fa;
+    border-color: #6c757d;
+  }
+
+  .badge--warning {
+    background-color: #e0a800;
+    color: #000000;
+  }
+}
