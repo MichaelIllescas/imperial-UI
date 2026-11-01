@@ -1,260 +1,109 @@
-# 🧱 Imperial UI - Librería de Componentes Reutilizables
+# Imperial UI
 
-## 🎯 Objetivo del Proyecto
+Librería de componentes React reutilizables para acelerar el desarrollo de interfaces: formularios, navegación, tablas, diálogos, notificaciones y layout, con estilos encapsulados y documentación por componente.
 
-**Imperial UI** es una librería interna de componentes React desarrollada por **Jonathan Illescas y José Pereyra (Imperial Net)**.  
-Su propósito es **centralizar y estandarizar** los componentes visuales y funcionales más utilizados en los proyectos frontend, promoviendo:
+No se publica en npm. Cada componente es autocontenido, así que se copia la carpeta al proyecto que lo necesita y se adapta libremente.
 
-- **Reutilización de código** entre distintos proyectos.  
-- **Consistencia visual y estructural** en las interfaces.  
-- **Rapidez de desarrollo**, evitando volver a crear componentes comunes.  
-- **Mantenibilidad**, gracias a una estructura clara y documentación detallada.  
+## Componentes
 
-Esta librería **no se publicará en npm**, sino que funcionará como un **repositorio interno de componentes**.  
-Cada vez que se inicie un nuevo proyecto, los componentes necesarios podrán **copiarse directamente desde esta librería** y adaptarse según el contexto.
+**Formularios**
 
----
+| Componente | Descripción |
+|---|---|
+| [Input](src/components/Input/README.md) | Campo de texto con íconos, validación y límite de caracteres |
+| [Textarea](src/components/Textarea/README.md) | Texto de varias líneas con contador de caracteres |
+| [Select](src/components/Select/README.md) | Lista desplegable de opciones |
+| [Checkbox](src/components/Checkbox/README.md) | Casilla de verificación con estado indeterminado |
+| [RadioGroup](src/components/RadioGroup/README.md) | Grupo de opciones de selección única |
+| [Switch](src/components/Switch/README.md) | Interruptor de activado y desactivado |
+| [DatePicker](src/components/DatePicker/README.md) | Selector de fecha |
+| [FileUpload](src/components/FileUpload/README.md) | Carga de archivos con arrastrar y soltar |
+| [FormGroup](src/components/FormGroup/README.md) | Etiqueta, ayuda y error para cualquier campo |
+| [Button](src/components/Button/README.md) | Botón con variantes y tamaños |
 
-## 🧩 Estructura de la Librería
+**Navegación y layout**
 
-La estructura general del proyecto es modular y organizada por componente:
+| Componente | Descripción |
+|---|---|
+| [Navbar](src/components/Navbar/README.md) | Barra de navegación responsive con menús desplegables |
+| [Sidebar](src/components/Sidebar/README.md) | Barra lateral con submenús |
+| [Footer](src/components/Footer/README.md) | Pie de página con enlaces y redes |
+| [Breadcrumb](src/components/Breadcrumb/README.md) | Ruta de navegación |
+| [Tabs](src/components/Tabs/README.md) | Pestañas horizontales o verticales |
+| [Dropdown](src/components/Dropdown/README.md) | Menú desplegable de acciones |
+| [Container](src/components/Container/README.md) | Contenedor centrado con ancho máximo |
+| [Grid](src/components/Grid/README.md) | Grilla basada en CSS Grid |
+
+**Datos**
+
+| Componente | Descripción |
+|---|---|
+| [Table](src/components/Table/README.md) | Tabla con búsqueda, orden, paginación y acciones |
+| [Paginator](src/components/Paginator/README.md) | Paginación de cualquier lista mediante render prop |
+| [Card](src/components/Card/README.md) | Tarjeta con encabezado, cuerpo, pie e imagen |
+| [Badge](src/components/Badge/README.md) | Etiquetas, contadores y estados |
+| [ProgressBar](src/components/ProgressBar/README.md) | Barra de progreso |
+
+**Feedback y diálogos**
+
+| Componente | Descripción |
+|---|---|
+| [Modal](src/components/Modal/README.md) | Ventana superpuesta |
+| [ConfirmDialog](src/components/ConfirmDialog/README.md) | Confirmación de acciones importantes |
+| [Alert](src/components/Alert/README.md) | Mensajes destacados, en línea o en modal |
+| [Toast](src/components/Toast/README.md) | Notificaciones temporales |
+| [Tooltip](src/components/Tooltip/README.md) | Texto de ayuda al pasar el mouse |
+| [LoadingSpinner](src/components/LoadingSpinner/README.md) | Indicador de carga |
+| [ChatBot](src/components/ChatBot/README.md) | Ventana de chat con botón flotante |
+| [Bubbles](src/components/Bubbles/README.md) | Fondo animado interactivo |
+
+**Hooks**
+
+| Hook | Descripción |
+|---|---|
+| [useModal](src/components/useModal/README.md) | Estado de apertura de modales |
+
+## Estructura de un componente
+
+Todos los componentes siguen la misma estructura:
 
 ```
-imperial-ui/
-├── src/
-│   ├── components/
-│   │   ├── Button/
-│   │   │   ├── Button.jsx
-│   │   │   ├── Button.module.css
-│   │   │   └── Button.md
-│   │   ├── Modal/
-│   │   ├── Table/
-│   │   ├── Navbar/
-│   │   ├── Sidebar/
-│   │   └── ...
-│   ├── hooks/
-│   └── utils/
-├── docs/
-│   ├── architecture.md
-│   ├── conventions.md
-│   ├── theming.md
-│   └── component-guide.md
-│   └── .....
-└── README.md
+src/components/Button/
+├── Button.jsx          componente
+├── Button.module.css   estilos encapsulados con CSS Modules
+└── README.md           uso, props, variantes, ejemplos y accesibilidad
 ```
 
-Cada componente se encuentra **aislado dentro de su propia carpeta**, conteniendo su **código**, **estilos** y **documentación**.
+- Los estilos usan **CSS Modules**, así que no colisionan con los del proyecto que los usa.
+- Las clases siguen la convención **BEM** (`bloque__elemento--modificador`).
+- Cada componente se exporta con nombre: `import { Button } from "./components/Button/Button"`.
 
----
+## Cómo usar un componente en otro proyecto
 
-## 🧰 Requisitos de cada componente
+1. Copiar la carpeta del componente (por ejemplo `src/components/Modal`) al proyecto.
+2. Importarlo y usarlo según su README.
 
-Cada componente de Imperial UI debe incluir tres archivos fundamentales y cumplir ciertos estándares para mantener la coherencia de la librería.
+Los componentes dependen de React. `Navbar`, `Footer`, `Sidebar` y `Breadcrumb` usan además React Router para los enlaces, y `Dropdown` y `Select` validan sus props con `prop-types`.
 
-### 1️⃣ Archivo principal: `NombreComponente.jsx`
+## Stack
 
-- Contiene el código funcional del componente.
-- Debe ser un **componente funcional (React Function Component)**.
-- Los nombres de props deben estar en **inglés** y ser claros.
-- Debe incluir comentarios con **JSDoc** al inicio, explicando las props y su uso.
-- Se debe importar el archivo CSS correspondiente (`.module.css`).
-- No debe tener lógica de negocio compleja —solo presentación o interacción visual.
+- React 19
+- Vite
+- CSS Modules
+- React Router (en los componentes de navegación)
 
-**Ejemplo:**
-```jsx
-/**
- * Reusable button component for actions and forms.
- *
- * Props:
- * - variant: 'primary' | 'secondary' | 'danger'
- * - size: 'small' | 'medium' | 'large'
- * - disabled: boolean
- * - onClick: function
- */
-import styles from "./Button.module.css";
+## Ejecutar el proyecto
 
-export function Button({ variant = "primary", size = "medium", disabled = false, onClick, children }) {
-  const className = `${styles.btn} ${styles[`btn--${variant}`]} ${styles[`btn--${size}`]}`;
-  return (
-    <button className={className} onClick={onClick} disabled={disabled}>
-      {children}
-    </button>
-  );
-}
+```bash
+npm install
+npm run dev
 ```
 
----
+## Licencia
 
-### 2️⃣ Archivo de estilos: `NombreComponente.module.css`
+Distribuido bajo licencia MIT. Ver [LICENSE](LICENSE).
 
-- Cada componente debe tener **su propio archivo de estilos** modular.  
-- La convención de nombres sigue la metodología **BEM (Block Element Modifier)** para facilitar la lectura y personalización.
-- Los estilos deben ser simples, reutilizables y fácilmente sobrescribibles.
-- Se recomienda utilizar variables CSS globales (colores, fuentes, espaciados) para mantener consistencia.
+## Autores
 
-**Ejemplo:**
-```css
-.btn {
-  font-weight: 500;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.btn--primary {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.btn--secondary {
-  background-color: #6c757d;
-  color: #fff;
-}
-
-.btn--small {
-  padding: 6px 12px;
-  font-size: 0.85rem;
-}
-
-.btn--medium {
-  padding: 8px 16px;
-  font-size: 1rem;
-}
-
-.btn--large {
-  padding: 12px 20px;
-  font-size: 1.1rem;
-}
-```
-
----
-
-### 3️⃣ Archivo de documentación: `NombreComponente.md`
-
-- Cada componente debe incluir su **propia documentación Markdown**.
-- El documento explica:
-  - Qué hace el componente.
-  - Cómo se usa (con ejemplos en código).
-  - Qué props recibe (nombre, tipo, descripción y valores posibles).
-  - Cómo personalizar su estilo.
-
-**Ejemplo:**
-```markdown
-# 🧱 Button
-
-Componente de botón reutilizable.
-
-## Descripción
-Este componente representa un botón configurable que puede adaptarse a diferentes variantes y tamaños.  
-Se utiliza para ejecutar acciones, confirmar formularios o navegar entre vistas.
-
-## Uso
-```jsx
-import { Button } from "./components/Button/Button";
-
-<Button variant="primary" size="large" onClick={() => alert("Guardado!")}>
-  Guardar
-</Button>
-```
-
-## Props
-
-| Prop | Tipo | Default | Descripción |
-|------|------|----------|-------------|
-| `variant` | string | `"primary"` | Estilo visual del botón. |
-| `size` | string | `"medium"` | Tamaño del botón. |
-| `onClick` | function | - | Función que se ejecuta al hacer clic. |
-| `disabled` | boolean | `false` | Deshabilita el botón. |
-
-## Personalización CSS
-Podés modificar los estilos sobrescribiendo las clases BEM:
-
-```css
-.btn--primary {
-  background-color: #28a745;
-}
-```
-```
-
----
-
-## 📘 Documentación general
-
-Además de la documentación individual de cada componente, el proyecto incluye una carpeta `docs/` con los siguientes archivos:
-
-| Archivo | Propósito |
-|----------|------------|
-| `usage.md` | Ejemplos de integración de varios componentes. |
-| `theming.md` | Instrucciones para personalizar colores, fuentes y variables globales. |
-| `changelog.md` | Registro de cambios y actualizaciones. |
-
----
-
-## 🧩 Componentes incluidos
-
-### 1. Componentes de Interfaz General
-- Button  
-- Input  
-- Select / Dropdown  
-- Checkbox  
-- RadioGroup  
-- Textarea  
-
-### 2. Componentes de Layout y Navegación
-- Navbar  
-- Sidebar  
-- Footer  
-- Card  
-- Grid / Container  
-
-### 3. Componentes de Datos y Tablas
-- Table  
-- PaginatedTable  
-- SortableTable  
-- SearchBar  
-
-### 4. Componentes de Interacción
-- Modal  
-- Alert / Toast  
-- ConfirmDialog  
-- Tooltip  
-- LoadingSpinner  
-
-### 5. Componentes de Formulario Avanzado
-- FormGroup  
-- DatePicker  
-- FileUpload  
-- Switch  
-
-### 6. Componentes Utilitarios
-- Breadcrumbs  
-- Tabs  
-- Pagination  
-- Badge / Tag  
-- Avatar  
-
-### 7. Componentes de Visualización
-- StatsCard  
-- ProgressBar  
-- EmptyState  
-- ChartWrapper  
-
-### 8. Hooks Reutilizables
-- useModal  
-- useForm  
-- usePagination  
-- useFetch  
-- useDebounce  
-
----
-
-## ⚙️ Buenas prácticas generales
-
-- Cada componente es **independiente y autocontenido**.  
-- Se Evitan dependencias entre componentes, salvo casos justificados.  
-- Nombres descriptivos en inglés.  
-- Se aplica la metodología **BEM** en todos los estilos.  
-- Ejemplos claros en cada archivo `.md`.  
-- Diseños consistente y minimalista.  
-
+- Jonathan Illescas · [GitHub](https://github.com/MichaelIllescas)
+- José Pereyra · [GitHub](https://github.com/jose19841)

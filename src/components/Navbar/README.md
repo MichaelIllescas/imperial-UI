@@ -5,7 +5,7 @@ Barra de navegación responsive con logo, enlaces, menús desplegables y menú m
 ## Uso
 
 ```jsx
-import Navbar from "./components/Navbar/Navbar";
+import { Navbar } from "./components/Navbar/Navbar";
 
 <Navbar
   brand="Mi App"
