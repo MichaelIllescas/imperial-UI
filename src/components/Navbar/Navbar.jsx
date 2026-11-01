@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
-const NavBar = ({
+const Navbar = ({
   logo,
   logoAlt = "Logo",
   brand,
@@ -243,4 +243,4 @@ const NavBar = ({
   );
 };
 
-export default NavBar;
+export default Navbar;
