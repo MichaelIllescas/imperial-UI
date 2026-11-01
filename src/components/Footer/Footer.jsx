@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 
 export function Footer({
     variant="simple",
-    companyName="Imperial Net",
+    companyName="Mi Empresa",
     year=new Date().getFullYear(),
     showSocial=false,
     showLinks=false,
