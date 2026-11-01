@@ -16,7 +16,7 @@ import styles from './Select.module.css';
  * @param {string} props.label - Etiqueta del select
  * @param {boolean} props.required - Campo requerido
  */
-const Select = ({
+export const Select = ({
   options = [],
   value = '',
   onChange,

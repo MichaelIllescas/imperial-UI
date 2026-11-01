@@ -14,7 +14,7 @@ import styles from './Dropdown.module.css';
  * @param {Function} props.onClose - Callback cuando se cierra el dropdown
  * @param {boolean} props.closeOnClick - Cierra el dropdown al hacer click en un item
  */
-const Dropdown = ({
+export const Dropdown = ({
   trigger,
   items = [],
   position = 'bottom-left',
